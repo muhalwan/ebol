@@ -9,7 +9,8 @@ companies_df = pd.read_csv("Perusahaan_Coding.csv", encoding='latin1')
 
 url = "https://kemenperin.go.id/direktori-perusahaan"
 
-driver = webdriver.Chrome(executable_path='E:\\Code\\Scrap\\pt\\chromedriver.exe')
+driver = webdriver.Chrome(executable_path='C:\\MY FILES\\All Microsoft Word\\Industry Engineering\\SEMESTER 7\\Project\\ebol\\chromedriver.exe')
+
 
 driver.get(url)
 
