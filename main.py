@@ -9,19 +9,18 @@ companies_df = pd.read_csv("Perusahaan_Coding.csv", encoding='latin1')
 
 url = "https://kemenperin.go.id/direktori-perusahaan"
 
-driver = webdriver.Chrome(executable_path='C:\\MY FILES\\All Microsoft Word\\Industry Engineering\\SEMESTER 7\\Project\\ebol\\chromedriver.exe')
-
+driver = webdriver.Chrome()
 
 driver.get(url)
 
 kbli_codes = []
 
-for company in companies_df['Company']:
+for company in companies_df['Nama']:
     search_box = driver.find_element(By.NAME, "what")
     search_box.clear()
     search_box.send_keys(company)
     driver.find_element(By.XPATH, '//input[@type="submit"]').click()
-    time.sleep(2)
+
 
     try:
         code = driver.find_element(By.XPATH, '//td[text()="\d{5}"]').text
