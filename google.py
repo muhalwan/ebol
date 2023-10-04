@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import time
 from datetime import datetime
 
-companies_df = pd.read_csv('Input/companies.csv')
+companies_df = pd.read_csv('continue.csv')
 
 sector_keywords = {
     'Industri': ['industri', 'manufaktur', 'manufacturer', 'produksi', 'memproduksi'],
