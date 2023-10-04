@@ -33,6 +33,8 @@ sector_keywords = {
     'Teknologi': ['teknologi', 'software', 'hardware'],
 }
 
+current_time = datetime.now().strftime('%m-%d_%H-%M')
+
 
 def get_sector(company, index):
     try:
@@ -49,7 +51,7 @@ def get_sector(company, index):
         return "Unknown"
     except Exception as e:
         print(f"Error at {index + 1}/{len(companies_df)}: {company} -> {str(e)}")
-        companies_df.to_csv('Output/perusahaan_google.csv', index=False)  # Save progress
+        companies_df.to_csv(f'Output/perusahaan_google_{current_time}.csv', index=False)  # Save progress
         return "Error"
 
 
@@ -59,4 +61,4 @@ for index, row in companies_df.iterrows():
     time.sleep(2)  # Delay to avoid rate limiting
 
     # Save the results to a new CSV file
-    companies_df.to_csv('Output/perusahaan_google.csv', index=False)
+    companies_df.to_csv(f'Output/perusahaan_google_{current_time}.csv', index=False)
