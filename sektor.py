@@ -51,12 +51,12 @@ def get_hierarchy_final_refined_corrected_v2(kbli_code, kbli_coding_df):
     return kelas_1, kelas_2, kelas_3, kelas_4
 
 
-company_kbli_df = pd.read_csv("Company_KBLI_Results.csv")
-kbli_coding_df = pd.read_csv("KBLI_Coding.csv", encoding="cp1252")
+company_kbli_df = pd.read_csv("Output/perusahaan_kbli.csv")
+kbli_coding_df = pd.read_csv("Input/data_kbli.csv", encoding="cp1252")
 
 
 company_kbli_df['Kelas 1'], company_kbli_df['Kelas 2'], company_kbli_df['Kelas 3'], company_kbli_df['Kelas 4'] = zip(
     *company_kbli_df['KBLI'].map(lambda x: get_hierarchy_final_refined_corrected_v2(x, kbli_coding_df)))
 
 
-company_kbli_df.to_csv("Processed_Companies.csv", index=False)
+company_kbli_df.to_csv("Output/Processed_Companies.csv", index=False)
