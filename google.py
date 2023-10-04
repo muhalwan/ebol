@@ -49,7 +49,7 @@ def get_sector(company, index):
         return "Unknown"
     except Exception as e:
         print(f"Error at {index + 1}/{len(companies_df)}: {company} -> {str(e)}")
-        companies_df.to_csv('companies_with_sectors.csv', index=False)  # Save progress
+        companies_df.to_csv('Output/perusahaan_google.csv', index=False)  # Save progress
         return "Error"
 
 
